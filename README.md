@@ -81,7 +81,7 @@ command to find a package we need: rospack list| grep <package_name>
 
 We can force ROS to refresh the package list using rospack profile
 
-When a python file is created from a web shell, it doesn't have executable permeissions so, its up to us to give the file an executable permission.
+When a python file is created from a web shell, it doesn't have executable permissions so, its up to us to give the file an executable permission.
 
 ROS nodes:
   ROS nodes are programs made in ROS, to see what are the nodes running use the command: rosnode list  
@@ -130,3 +130,41 @@ The most important variables are the ROS_MASTER_URI and the ROS_PACKAGE_PATH.
 So, Basically ROS is a frame work that enables us to do all these processes, it provides us with a background to process these nodes and manage communications between them.
 
                                             **END OF CHAPTER - 2**
+
+Chapter 3:
+
+ROS Topics:
+
+A topic is like a pipe, ROS nodes use topics to publish information to other nodes, so that they can communicate.
+
+We can find all the topics using the following command: rostopic list
+
+to find a specifc topic: rostopic list | grep 'Topic_name'
+
+To find information about a specific topic we can us the command:  rostopic info <Topic_name>
+
+To display the output of the topic in real time we can use the Command: rostopic echo <Topic_name>
+
+Publisher: Publisher is a node that keeps publishing a message into the topic.
+
+If messages are large and want to display only a last line we can use: rostopic echo <Topic_name> -n1
+
+Messages:
+
+Topics handles information through messages, we can also send custom messages, but is best to use default messages available, they stored in .msg files of msg folder of the package
+
+To get information about a message we can use the command: rosmsg show <message>
+
+Steps to create our own publisher:
+
+1)Create your own package in the catkin_ws src folder using the command:catkin_create_pkg <package_name> <package_dependencies>
+
+2)After the package is created in the src folder of the package create the python script of publisher using touch Command.
+
+3)Give the script executable permissions, after that create a launch folder using the mkdir command.
+
+4)create the launch script using the command touch launch/launch_filename.launch_file.
+
+5)Inside the launch file based on the syntax give the package name, file type, node name and output type within the node tag.
+
+                                                  *END OF CHAPTER-3*
